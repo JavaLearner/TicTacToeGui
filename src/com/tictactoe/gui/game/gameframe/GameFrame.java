@@ -1,4 +1,4 @@
-package com.tictactoe.gui.game.display;
+package com.tictactoe.gui.game.gameframe;
 
 import java.awt.*;
 
