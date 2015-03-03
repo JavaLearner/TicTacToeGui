@@ -7,14 +7,18 @@ import javax.swing.*;
  */
 public class GameFrame extends JFrame{
     private int Score = 0;
+    private static int SizeX = 500;
+    private static int SizeY = 500;
 //    private JLabel ;
 //    private JButton ;
 //    private JButton ;
     public GameFrame(String MainTitle){
         super(MainTitle);
-        setSize(350,350);
+        setSize(SizeX,SizeY);
         setVisible(true);
+        setResizable(false); //disable resizing
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 
 }
