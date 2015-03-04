@@ -40,6 +40,11 @@ public class GameFrame extends JFrame {
         newMenu.setFont(font);
         fileMenu.add(newMenu);
 
+        JMenu fileMenu1 = new JMenu("About");
+        fileMenu1.setFont(font);
+
+
+
         JMenuItem txtFileItem = new JMenuItem("Human-Computer");
         txtFileItem.setFont(font);
         newMenu.add(txtFileItem);
@@ -56,19 +61,7 @@ public class GameFrame extends JFrame {
         txtFileItem2.setFont(font);
         changeSymbol.add(txtFileItem2);
 
-        JMenuItem openItem = new JMenuItem("Open");
-        openItem.setFont(font);
-        fileMenu.add(openItem);
-
-        JMenuItem closeItem = new JMenuItem("Close");
-        closeItem.setFont(font);
-        fileMenu.add(closeItem);
-
-        JMenuItem closeAllItem = new JMenuItem("Close all");
-        closeAllItem.setFont(font);
-        fileMenu.add(closeAllItem);
-
-        fileMenu.addSeparator();
+                fileMenu.addSeparator();
 
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.setFont(font);
@@ -81,8 +74,10 @@ public class GameFrame extends JFrame {
         });
 
         menuBar.add(fileMenu);
+        menuBar.add(fileMenu1);
 
         frame.setJMenuBar(menuBar);
+        //frame.setJMenuBar(menuBar);
 
         frame.setPreferredSize(new Dimension(400, 400));
         frame.pack();
