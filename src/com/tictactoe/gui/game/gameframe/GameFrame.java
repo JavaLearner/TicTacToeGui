@@ -10,7 +10,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-    //    private JLabel ;
+//    private JLabel ;
 //    private JButton ;
 //    private JButton ;
 //    public GameFrame(String MainTitle) {
@@ -22,68 +22,72 @@ import javax.swing.JMenuItem;
 //        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //       // JOptionPane.showMessageDialog(this, "Draw!"); //message dialog:)
 //    }
-    public class GameFrame extends JFrame {
+public class GameFrame extends JFrame {
 
-        public static void initFrame() {
+    public static void initFrame() {
 
-            JFrame frame = new JFrame("Tic Tac Toe v1.0");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame frame = new JFrame("Tic Tac Toe v1.0");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            Font font = new Font("Arial", Font.BOLD, 14);
+        Font font = new Font("Arial", Font.BOLD, 14);
 
-            JMenuBar menuBar = new JMenuBar();
+        JMenuBar menuBar = new JMenuBar();
 
-            JMenu fileMenu = new JMenu("File");
-            fileMenu.setFont(font);
+        JMenu fileMenu = new JMenu("Menu");
+        fileMenu.setFont(font);
 
-            JMenu newMenu = new JMenu("New");
-            newMenu.setFont(font);
-            fileMenu.add(newMenu);
+        JMenu newMenu = new JMenu("New Game");
+        newMenu.setFont(font);
+        fileMenu.add(newMenu);
 
-            JMenuItem txtFileItem = new JMenuItem("Text file");
-            txtFileItem.setFont(font);
-            newMenu.add(txtFileItem);
+        JMenuItem txtFileItem = new JMenuItem("Human-Computer");
+        txtFileItem.setFont(font);
+        newMenu.add(txtFileItem);
 
-            JMenuItem imgFileItem = new JMenuItem("Image file");
-            imgFileItem.setFont(font);
-            newMenu.add(imgFileItem);
+        JMenuItem txtFileItem1 = new JMenuItem("Human-Human");
+        txtFileItem1.setFont(font);
+        newMenu.add(txtFileItem1);
 
-            JMenuItem folderItem = new JMenuItem("Folder");
-            folderItem.setFont(font);
-            newMenu.add(folderItem);
+        JMenu changeSymbol = new JMenu("Change symbol");
+        changeSymbol.setFont(font);
+        fileMenu.add(changeSymbol);
 
-            JMenuItem openItem = new JMenuItem("Open");
-            openItem.setFont(font);
-            fileMenu.add(openItem);
+        JMenuItem txtFileItem2 = new JMenuItem("X");
+        txtFileItem2.setFont(font);
+        changeSymbol.add(txtFileItem2);
 
-            JMenuItem closeItem = new JMenuItem("Close");
-            closeItem.setFont(font);
-            fileMenu.add(closeItem);
+        JMenuItem openItem = new JMenuItem("Open");
+        openItem.setFont(font);
+        fileMenu.add(openItem);
 
-            JMenuItem closeAllItem = new JMenuItem("Close all");
-            closeAllItem.setFont(font);
-            fileMenu.add(closeAllItem);
+        JMenuItem closeItem = new JMenuItem("Close");
+        closeItem.setFont(font);
+        fileMenu.add(closeItem);
 
-            fileMenu.addSeparator();
+        JMenuItem closeAllItem = new JMenuItem("Close all");
+        closeAllItem.setFont(font);
+        fileMenu.add(closeAllItem);
 
-            JMenuItem exitItem = new JMenuItem("Exit");
-            exitItem.setFont(font);
-            fileMenu.add(exitItem);
+        fileMenu.addSeparator();
 
-            exitItem.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    System.exit(0);
-                }
-            });
+        JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.setFont(font);
+        fileMenu.add(exitItem);
 
-            menuBar.add(fileMenu);
+        exitItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
-            frame.setJMenuBar(menuBar);
+        menuBar.add(fileMenu);
 
-            frame.setPreferredSize(new Dimension(400, 400));
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-            frame.setResizable(false);
-        }
+        frame.setJMenuBar(menuBar);
+
+        frame.setPreferredSize(new Dimension(400, 400));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setResizable(false);
     }
+}
