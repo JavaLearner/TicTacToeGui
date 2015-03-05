@@ -6,29 +6,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-//    private JLabel ;
-//    private JButton ;
-//    private JButton ;
-//    public GameFrame(String MainTitle) {
-//        super(MainTitle);
-//        init();
-//        setSize(SizeX, SizeY);
-//        setVisible(true);
-//        setResizable(false); //disable resizing
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//       // JOptionPane.showMessageDialog(this, "Draw!"); //message dialog:)
-//    }
+
 public class GameFrame extends JFrame {
 
 
-    private JButton button1, button2, button3, button4, button5;
-    private JButton button6, button7, button8, button9;
+
     private final int fieldSize = 9;
     private  String letter = new String();
     private int turns = 0;
-//    public void setJbnButtons(JButton[] jbnButtons) {
-//        this.jbnButtons = jbnButtons;
-//    }
 
     //private ButtonDefinition newButton = new ButtonDefinition();
     //private final String leftArrow = new String("\u2190");
@@ -138,9 +123,9 @@ public class GameFrame extends JFrame {
         ActionListener buttonListener = new ButtonListener();
 
             jbnButtons[index] = new JButton("");
-            jbnButtons[index].setFont(new Font(Font.SERIF, 0, 24));
+            jbnButtons[index].setFont(new Font(Font.SERIF, 0, 50));
             jbnButtons[index].addActionListener(buttonListener);
-            //boardPanel.add(jbnButtons[index]);
+
         }
 
 
