@@ -1,14 +1,10 @@
 package com.tictactoe.gui.game.gameframe;
 
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.*;
 
 //    private JLabel ;
 //    private JButton ;
@@ -24,7 +20,16 @@ import javax.swing.JMenuItem;
 //    }
 public class GameFrame extends JFrame {
 
-    public static void initFrame() {
+
+    private JButton button1, button2, button3, button4, button5;
+    private JButton button6, button7, button8, button9;
+    private final int gameField = 9;
+    //private ButtonDefinition newButton = new ButtonDefinition();
+    private final String leftArrow = new String("\u2190");
+    private JButton jbnButtons[] = new JButton[9];
+    private Font fl2 = new Font("bold", 2, 30);// set font
+
+    public void initFrame() {
 
         JFrame frame = new JFrame("Tic Tac Toe v1.0");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,7 +49,6 @@ public class GameFrame extends JFrame {
         fileMenu1.setFont(font);
 
 
-
         JMenuItem txtFileItem = new JMenuItem("Human-Computer");
         txtFileItem.setFont(font);
         newMenu.add(txtFileItem);
@@ -61,11 +65,19 @@ public class GameFrame extends JFrame {
         txtFileItem2.setFont(font);
         changeSymbol.add(txtFileItem2);
 
-                fileMenu.addSeparator();
+        fileMenu.addSeparator();
 
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.setFont(font);
         fileMenu.add(exitItem);
+
+        JPanel panelOperation = new JPanel();
+        panelOperation.setLayout(new GridLayout(3, 3, 3, 3));
+        for(int i=0;i<gameField; i++){
+            panelOperation.add(createButton());
+        }
+
+        frame.add(panelOperation);
 
         exitItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -77,12 +89,15 @@ public class GameFrame extends JFrame {
         menuBar.add(fileMenu1);
 
         frame.setJMenuBar(menuBar);
-        //frame.setJMenuBar(menuBar);
 
         frame.setPreferredSize(new Dimension(400, 400));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
+    }
+
+    private JButton createButton() {
+           return new JButton();
     }
 }
