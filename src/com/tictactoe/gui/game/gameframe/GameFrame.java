@@ -25,7 +25,7 @@ public class GameFrame extends JFrame {
     private JButton button6, button7, button8, button9;
     private final int fieldSize = 9;
     private  String letter = new String();
-
+    private int turns = 0;
 //    public void setJbnButtons(JButton[] jbnButtons) {
 //        this.jbnButtons = jbnButtons;
 //    }
@@ -118,7 +118,7 @@ public class GameFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent ae)
             {
-                int turns = 0;
+
                         turns++;
                 if(turns % 2 == 0)
                 {
