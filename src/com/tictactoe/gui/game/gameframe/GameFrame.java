@@ -23,9 +23,15 @@ public class GameFrame extends JFrame {
 
     private JButton button1, button2, button3, button4, button5;
     private JButton button6, button7, button8, button9;
-    private final int gameField = 9;
+    private final int fieldSize = 9;
+    private  String letter = new String();
+
+//    public void setJbnButtons(JButton[] jbnButtons) {
+//        this.jbnButtons = jbnButtons;
+//    }
+
     //private ButtonDefinition newButton = new ButtonDefinition();
-    private final String leftArrow = new String("\u2190");
+    //private final String leftArrow = new String("\u2190");
     private JButton jbnButtons[] = new JButton[9];
     private Font fl2 = new Font("bold", 2, 30);// set font
 
@@ -48,22 +54,28 @@ public class GameFrame extends JFrame {
         JMenu fileMenu1 = new JMenu("About");
         fileMenu1.setFont(font);
 
+        //JOptionPane.showMessageDialog(this, "Draw!"); //message dialog:)
 
-        JMenuItem txtFileItem = new JMenuItem("Human-Computer");
+
+        JMenuItem txtFileItem = new JMenuItem("Human VS Computer");
         txtFileItem.setFont(font);
         newMenu.add(txtFileItem);
 
-        JMenuItem txtFileItem1 = new JMenuItem("Human-Human");
+        JMenuItem txtFileItem1 = new JMenuItem("Human VS Human");
         txtFileItem1.setFont(font);
         newMenu.add(txtFileItem1);
 
-        JMenu changeSymbol = new JMenu("Change symbol");
-        changeSymbol.setFont(font);
-        fileMenu.add(changeSymbol);
+//        JMenu changeSymbol = new JMenu("Change symbol");
+//        changeSymbol.setFont(font);
+//        fileMenu.add(changeSymbol);
 
-        JMenuItem txtFileItem2 = new JMenuItem("X");
-        txtFileItem2.setFont(font);
-        changeSymbol.add(txtFileItem2);
+//        JMenuItem txtFileItem2 = new JMenuItem("X");
+//        txtFileItem2.setFont(font);
+//        changeSymbol.add(txtFileItem2);
+//
+//        JMenuItem txtFileItem3 = new JMenuItem("0");
+//        txtFileItem3.setFont(font);
+//        changeSymbol.add(txtFileItem3);
 
         fileMenu.addSeparator();
 
@@ -73,8 +85,9 @@ public class GameFrame extends JFrame {
 
         JPanel panelOperation = new JPanel();
         panelOperation.setLayout(new GridLayout(3, 3, 3, 3));
-        for(int i=0;i<gameField; i++){
-            panelOperation.add(createButton());
+        for (int i = 0; i < fieldSize; i++) {
+            createButton(i);
+            panelOperation.add(jbnButtons[i]);
         }
 
         frame.add(panelOperation);
@@ -97,7 +110,40 @@ public class GameFrame extends JFrame {
         frame.setResizable(false);
     }
 
-    private JButton createButton() {
-           return new JButton();
-    }
+    private void createButton(int index) {
+
+        class ButtonListener implements ActionListener
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent ae)
+            {
+                int turns = 0;
+                        turns++;
+                if(turns % 2 == 0)
+                {
+                    letter = "O";
+                }
+                else {
+                    letter = "X";
+                }
+
+                JButton pressedButton = (JButton)ae.getSource();
+                pressedButton.setText(letter);
+                pressedButton.setEnabled(false);
+            }
+
+        }
+
+        ActionListener buttonListener = new ButtonListener();
+
+            jbnButtons[index] = new JButton("");
+            jbnButtons[index].setFont(new Font(Font.SERIF, 0, 24));
+            jbnButtons[index].addActionListener(buttonListener);
+            //boardPanel.add(jbnButtons[index]);
+        }
+
+
+
+
 }
